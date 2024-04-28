@@ -29,6 +29,17 @@ keymap.set("n", "sk", "<C-w>k")
 keymap.set("n", "zso", ":source<Return>")
 
 -- Diagnostics
-keymap.set("n", "<f-8", function()
-    vim.diagnostic.goto_next()
+keymap.set("n", "<f-8>", function()
+	vim.diagnostic.goto_next()
 end, opts)
+
+-- terminal
+keymap.set("n", "<leader>fT", function()
+	local lazyUtil = require("lazyvim.util")
+	lazyUtil.terminal(nil, { cwd = lazyUtil.root() })
+end, { desc = "Terminal (root dir)" })
+
+-- code
+keymap.set("n", "<leader>o", function()
+	vim.lsp.buf.code_action()
+end, { desc = "Code action" })
