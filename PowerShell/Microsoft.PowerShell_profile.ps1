@@ -48,10 +48,3 @@ Function dnpm {
     $currentPath = wsl pwd
     wsl docker run -it --rm -w /app -v ${currentPath}:/app -p 8080:8080 node:alpine npm $args
 }
-
-$env:INSTANCE_UNIX_SOCKET="restaurant-421915:us-central1:lucky-cat"
-$env:DB_USER="luckycat"
-$env:DB_PASS="1234qwer"
-$env:DB_NAME="LuckyCatDB"
-
-
