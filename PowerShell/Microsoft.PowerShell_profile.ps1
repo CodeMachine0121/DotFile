@@ -27,7 +27,7 @@ Set-PSReadLineOption -ShowToolTips
 
 
 Function ex { explorer.exe $args }
-Function hosts { sudo wsl vim C:\Windows\System32\drivers\etc\hosts }
+Function hosts {wsl vim C:\Windows\System32\drivers\etc\hosts }
 
 # function of folder
 Function .. { cd ..\ }
