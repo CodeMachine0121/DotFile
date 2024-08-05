@@ -1,16 +1,15 @@
-## kubectl 
-. ~/Documents/PowerShell/kubernets.ps1
-## nami
-. ~/Documents/PowerShell/nami.ps1
-## wslRelated
+## import denpendencies
+$env:Path += ";~\AppData\Local\Programs\oh-my-posh\bin"
 . ~/Documents/PowerShell/wslRelated.ps1
+
+## update oh-my-posh
+winget upgrade JanDeDobbeleer.OhMyPosh -s winget
 
 $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = [Text.UTF8Encoding]::UTF8
 oh-my-posh init pwsh --config "~/posh-theme/themes/gruvbox.omp.json" | Invoke-Expression
 
 Import-Module posh-git
 Import-Module ZLocation
-
 Import-Module PSReadLine
 
 # Shows navigable menu of all options when hitting Tab
