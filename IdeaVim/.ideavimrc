@@ -1,0 +1,106 @@
+if has('ide')
+  if &ide =~? 'webstorm'
+     source ~/webstorm.vimrc
+  elseif &ide =~? 'jetbrains rider'
+    source ~/rider.vimrc
+  endif
+endif
+
+"[Basic]
+nmap <A-u> :redo<CR>
+nmap ,c :action NewElementSamePlace<CR>
+nmap zso : source ~/.ideavimrc<CR>
+imap jk <Esc>
+set timeoutlen=1000
+
+
+"[Move]
+map <C-right> w
+map <C-left> b
+nmap zzz zzhh<CR>
+
+"[Jump]
+nmap <SPACE> :action AceAction<CR>
+nmap zn :action GotoNextError<CR>
+nmap zN :action GotoPreviousError<CR>
+nmap hh ^
+nmap ll $
+nmap ,m :action FileStructurePopup<CR>
+nmap zf :action GotoDeclaration<CR>:action RdParameterDeclarationNavigationAction<CR>
+nmap z1 hhf(ww
+nmap zpp f f w
+nmap zip /NotImplementedException<CR>hh
+nmap zx /throw<CR>hh
+map <C-f11> :action GotoTypeDeclaration<CR>
+
+"[Line]
+nmap K f,<C-CR>jhh
+nmap zai Ypk$a,<Esc><CR>
+nmap <C-CR> mza<CR><Esc>`z
+
+"[Insert]
+nnoremap <Tab> >>_
+vnoremap <Tab> >gv
+nmap zsb A.Should().Be();<Esc>ba
+nmap z, A,<Esc>
+nmap z; A;<Esc>
+nmap z. A.<Esc>
+vmap S :action SurroundWith<CR>
+map zrt <Esc>hhireturn <Esc>z;
+nmap ,g :action Generate<CR>
+nmap zjp hhf{bvt y<Esc>O[JsonProperty("<Esc>pT"~$a")]<Esc>
+nmap zaw hhiawait
+nmap zva hhf=a await <Esc>
+nmap zcv ^vi":<C-u>action $Paste<CR>
+vmap " <Esc>bi"<Esc>wwi"
+vmap ' <Esc>bi'<Esc>wwi'
+vmap ( <Esc>bi(<Esc>wwi)
+vmap [ <Esc>bi[<Esc>wwi]
+vmap { <Esc>bi{<Esc>wwi}
+vmap < <Esc>bi<<Esc>wwi>
+
+"[Delete]
+nmap zcc ^ci"
+nmap zss ci"
+nmap zb ciw
+vmap zb <Esc>zb
+nmap hc ^C
+
+"[Refactor]
+vmap M :action ExtractMethod<CR>
+map zri :action Inline<CR>
+imap zri <Esc>zri
+map zrv :action IntroduceVariable<CR>
+imap zrv <Esc>zrv
+map zrp :action IntroduceParameter<CR>
+imap zrp <Esc>zrp<Esc>
+map zrf :action IntroduceField<CR>
+imap zrf <Esc>zrf
+map zrr hhcf=return
+imap zrr <Esc>zrr
+
+"[Select]
+nmap z( vi(
+nmap z) vi)
+nmap z[ vi]
+nmap z] vi]
+nmap z{ vi{
+nmap z} vi}
+nmap z< vi<
+nmap z> vi>
+nmap z" vi"
+nmap z' vi'
+nmap z/ F>wvt<
+imap <C-x> <Esc>dd
+imap <C-a> <Esc>ma<CR>ggVG
+map vv v^
+
+
+"[other]
+set clipboard=unnamedplus
+set visualbell
+
+" [Git]
+noremap zgp :action Git.Pull<CR>
+noremap zg :action Git.Menu<CR>
+noremap zga :action Git.Add<CR>
