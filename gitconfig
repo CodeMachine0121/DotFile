@@ -1,0 +1,68 @@
+[alias]
+	rollback = checkout HEAD --	
+    amend = commit --amend
+    amendf = commit --amend --no-edit
+    br = branch
+    ct = commit -m 
+    co = checkout
+    cp = cherry-pick
+    dff = diff --name-only
+    df = diff
+    ds = diff --staged
+    f = fetch
+    l = log
+    lg = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+    lgs = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative -n 10
+    lp = log --pretty=oneline
+    sa = stash apply
+    sh = show
+    ss = stash save
+    st = status
+    v = remote -v
+    pom = push -u origin master
+    ps = push
+    pl = pull
+    a = add .
+    rro = remote rm origin
+ 
+[color]
+    ui = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[color "diff"]
+    meta = yellow
+    frag = magenta bold
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
+ 
+[user]
+    email = james.hsueh@titansoft.com.sg
+    name = james.hsueh
+[credential "http://git.coreop.net"]
+	provider = generic
+[safe]
+	directory = D:/twsc/nami
+	directory = D:/twsc/rohan
+	directory = D:/twsc/rohan
+	directory = D:/twsc/HectorGraphQL
+	directory = D:/twsc/Hector
+	directory = C:/Users/james.hsueh77/Desktop/work-space/tdd-submit-form
+	directory = D:/twsc/hector
+	directory = D:/twdc/titansoft.aspnetcore.logging
+	directory = D:/twsc/pontus
+	directory = C:/Users/james.hsueh77/Desktop/work-space/LuckyCat
+[pull]
+	rebase = true
