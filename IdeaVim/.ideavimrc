@@ -31,7 +31,8 @@ nmap z1 hhf(ww
 nmap zpp f f w
 nmap zip /NotImplementedException<CR>hh
 nmap zx /throw<CR>hh
-map <C-f11> :action GotoTypeDeclaration<CR>
+nmap gd :action GotoDeclaration<CR>
+nmap gi :action GotoImplementation<CR>
 
 "[Line]
 nmap K f,<C-CR>jhh
@@ -101,6 +102,4 @@ set clipboard=unnamedplus
 set visualbell
 
 " [Git]
-noremap zgp :action Git.Pull<CR>
-noremap zg :action Git.Menu<CR>
-noremap zga :action Git.Add<CR>
+nmap git :action Git.Menu<CR>
