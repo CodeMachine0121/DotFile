@@ -77,8 +77,7 @@ map zrp :action IntroduceParameter<CR>
 imap zrp <Esc>zrp<Esc>
 map zrf :action IntroduceField<CR>
 imap zrf <Esc>zrf
-map zrr hhcf=return
-imap zrr <Esc>zrr
+nmap rr :action Refactorings.QuickListPopupAction<CR>
 
 "[Select]
 nmap z( vi(
