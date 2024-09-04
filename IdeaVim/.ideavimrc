@@ -11,7 +11,9 @@ nmap <A-u> :redo<CR>
 nmap ,c :action NewElementSamePlace<CR>
 nmap zso : source ~/.ideavimrc<CR>
 imap jk <Esc>
-set timeoutlen=1000
+nmap ff :action FindInPath<CR>
+nmap ft :action SearchEverywhere<CR>
+nmap zq :action CloseActiveTab<CR>
 
 
 "[Move]
@@ -101,4 +103,4 @@ set clipboard=unnamedplus
 set visualbell
 
 " [Git]
-nmap git :action Git.Menu<CR>
+nmap zgp :action Git.Menu<CR>
