@@ -13,5 +13,5 @@
     vmap zra :action RiderUnitTestRunSolutionAction<CR>:action ActivateUnitTestsToolWindow<CR>
     nmap zrm ?[Test<CR>:action MethodDown<CR>:action RiderUnitTestRunContextAction<CR>:action ActivateUnitTestsToolWindow<CR>
 	nmap zlt y?\[Test<CR>P/public<CR>$B:action ReformatCode<CR>
-	imap  zlt <Esc>zlt
+	imap zlt <Esc>zlt
 

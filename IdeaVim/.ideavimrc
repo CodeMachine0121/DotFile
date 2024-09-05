@@ -11,9 +11,8 @@ nmap <A-u> :redo<CR>
 nmap ,c :action NewElementSamePlace<CR>
 nmap zso : source ~/.ideavimrc<CR>
 imap jk <Esc>
-nmap ff :action FindInPath<CR>
-nmap ft :action SearchEverywhere<CR>
-nmap zq :action CloseActiveTab<CR>
+nmap fw :action FindInPath<CR>
+nmap ff :action SearchEverywhere<CR>
 
 
 "[Move]
