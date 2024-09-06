@@ -11,6 +11,7 @@ fi
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export PATH=$PATH:/home/james/.local/bin
+export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # Set name of the theme to load --- if set to "random", it will
@@ -114,7 +115,7 @@ source $ZSH/oh-my-zsh.sh
 alias dps='docker ps'
 alias dm='docker images'
 alias k='kubectl'
-
+alias vim='nvim'
 
 function knsp(){
    k config set-context --current --namespace=b2c-payment
@@ -125,17 +126,18 @@ function knsc(){
 function knsg(){
    k config set-context --current --namespace=geo-ip
 }
-
-# config for auto complete
-## case sensitive
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-## Down arrow:
-bindkey '\e[B' down-line-or-select
-bindkey '\eOB' down-line-or-select
-## down-line-or-select:  Open completion menu.
-## down-line-or-history: Cycle to next history line.
+# auto complete for kubectl
+complete -o default -F __start_kubectl k
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 DONT_PROMPT_WSL_INSTALL=No_Prompt_please
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 eval "$(zoxide init zsh)"
+source <(kubectl completion zsh)
+
+# fnm
+FNM_PATH="/home/james/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/james/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
