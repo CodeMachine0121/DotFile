@@ -80,7 +80,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf zsh-autosuggestions zsh-syntax-highlighting zsh-you-should-use vscode)
+plugins=(git fzf zsh-autosuggestions zsh-syntax-highlighting zsh-you-should-use vscode z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -117,15 +117,6 @@ alias dm='docker images'
 alias k='kubectl'
 alias vim='nvim'
 
-function knsp(){
-   k config set-context --current --namespace=b2c-payment
-}
-function knsc(){
-   k config set-context --current --namespace=callcenter
-}
-function knsg(){
-   k config set-context --current --namespace=geo-ip
-}
 # auto complete for kubectl
 complete -o default -F __start_kubectl k
 
