@@ -67,6 +67,8 @@ map("v", "<Tab>", ">gv")
 map("n", "hh", "^")
 map("n", "ll", "$")
 map("n", "<leader>so", "<CMD>source<CR>")
+map("n", "<C-w>", "<Plug>(expand_region_expand)")
+map("v", "<C-w>", "<Plug>(expand_region_expand)")
 
 -- Lsp
 map("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>")
@@ -76,3 +78,21 @@ map("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>")
 map("n", "<leader>rn", "<CMD>lua vim.lsp.buf.rename()<CR>")
 map("n", "<leader>fm", "<CMD>lua vim.lsp.buf.format()<CR>")
 map("n", "<leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>")
+map("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>")
+
+
+-- move
+map("n", "gb",  "<C-o>")
+map("n", "gB",  "<C-i>")
+map("n", "<leader><leader>", "<Plug>(easymotion-s)")
+
+
+-- Refactor
+map("x", "M", "<CMD>lua require('refactoring').refactor('Extract Function')<CR>")
+map("x", "<leader>rv", "<CMD>lua require('refactoring').refactor('Extract Variable')<CR>")
+map("x", "<leader>rp", "<CMD>lua require('refactoring').refactor('Extract Parameter')<CR>")
+map("x", "<leader>ri", "<CMD>lua require('refactoring').refactor('Inline Variable')<CR>")
+map("x", "<leader>rf", "<CMD>lua require('refactoring').refactor('Extract Block To File')<CR>")
+map("x", "<leader>rr", "<CMD>lua require('refactoring').select_refactor()<CR>")
+
+

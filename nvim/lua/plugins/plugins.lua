@@ -48,7 +48,17 @@ return require("packer").startup(function(use)
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = { { "nvim/lua/plenary.nvim" } },
+    config = function()
+      require("configs.telescope")
+    end,
 	})
+  use {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    run = "make",
+  }
+  use{
+    "nvim-telescope/telescope-ui-select.nvim"
+  }
 
 	-- Lsp
 	use({
@@ -163,4 +173,31 @@ return require("packer").startup(function(use)
 
 	-- auto save
 	use("https://github.com/pocco81/auto-save.nvim")
+
+  -- Refactoring
+  use {
+    "ThePrimeagen/refactoring.nvim",
+    requires = {
+        {"nvim-lua/plenary.nvim"},
+        {"nvim-treesitter/nvim-treesitter"}
+    },
+    config = function()
+      require("configs.refactoring")
+    end,
+  }
+
+  -- extend selection
+  use {
+    'terryma/vim-expand-region',
+    config = function()
+      --require("configs.expand-region")
+    end,
+
+  }
+
+
+-- easy motion
+use {
+  'easymotion/vim-easymotion',
+}
 end)
