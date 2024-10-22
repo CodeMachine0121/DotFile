@@ -14,10 +14,10 @@ end
 
 load_plugins()
 
-local themeStatus, kanagawa = pcall(require, "onedark")
+local themeStatus, theme= pcall(require, "bamboo")
 
 if themeStatus then
-	vim.cmd("colorscheme onedark")
+	vim.cmd("colorscheme bamboo")
 else
 	return
 end

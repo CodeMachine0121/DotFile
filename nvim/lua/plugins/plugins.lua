@@ -24,6 +24,13 @@ return require("packer").startup(function(use)
 	-- Colorschema
 	use("rebelot/kanagawa.nvim")
 	use("navarasu/onedark.nvim")
+  use({
+    "ribru17/bamboo.nvim",
+    config = function()
+      require("configs.bamboo")
+    end,
+  })
+
 	-- Statusline
 	use({
 		"nvim-lualine/lualine.nvim",
