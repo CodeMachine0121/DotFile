@@ -62,12 +62,15 @@ return require("packer").startup(function(use)
 
 	-- Lsp
 	use({
-		"neovim/nvim-lspconfig",
-		config = function()
-			require("configs.lsp")
-		end,
-	})
-	use("onsails/lspkind-nvim")
+  	"neovim/nvim-lspconfig",
+ 		config = function()
+ 			require("configs.lsp")
+ 		end,
+ 	})
+  --
+	use({
+    "onsails/lspkind-nvim",
+  })
 	use({
 		"L3MON4D3/LuaSnip",
 	})
@@ -101,11 +104,11 @@ return require("packer").startup(function(use)
 			require("mason").setup()
 		end,
 	})
-
+--
 	use({
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
-			require("configs.mason-lsp")
+		require("configs.mason-lsp")
 		end,
 		after = "mason.nvim",
 	})
@@ -172,7 +175,7 @@ return require("packer").startup(function(use)
 	})
 
 	-- auto save
-	use("https://github.com/pocco81/auto-save.nvim")
+	--use("https://github.com/pocco81/auto-save.nvim")
 
   -- Refactoring
   use {
@@ -195,9 +198,51 @@ return require("packer").startup(function(use)
 
   }
 
+  -- easy motion
+  use {
+    'easymotion/vim-easymotion',
+  }
 
--- easy motion
-use {
-  'easymotion/vim-easymotion',
-}
+  -- glance, code moving 
+  use {
+    "dnlhc/glance.nvim",
+    config = function()
+      require("configs.glance")
+    end,
+  }
+
+  -- trouble 
+  use {
+    "folke/trouble.nvim",
+    requires = "nvim-web-devicons",
+    config = function()
+      require("configs.trouble")
+    end,
+  }
+
+  -- trouble sum: show sum of error warning
+  use {
+    "ivanjermakov/troublesum.nvim",
+    config = function()
+      require("configs.troublesum")
+    end,
+  }
+
+  -- buffer line
+  use {
+    "akinsho/nvim-bufferline.lua",
+    config = function()
+      require("configs.bufferline")
+    end,
+  }
+  
+  -- comment
+  use{
+    "numToStr/Comment.nvim",
+    configs = function()
+      require("Comment").setup({})
+    end,
+  }
+
+
 end)

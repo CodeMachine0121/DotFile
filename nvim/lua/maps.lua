@@ -70,21 +70,12 @@ map("n", "<leader>so", "<CMD>source<CR>")
 map("n", "<C-w>", "<Plug>(expand_region_expand)")
 map("v", "<C-w>", "<Plug>(expand_region_expand)")
 
--- Lsp
-map("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>")
-map("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>")
-map("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>")
-map("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>")
-map("n", "<leader>rn", "<CMD>lua vim.lsp.buf.rename()<CR>")
-map("n", "<leader>fm", "<CMD>lua vim.lsp.buf.format()<CR>")
-map("n", "<leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>")
-map("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>")
 
 
 -- move
-map("n", "gb",  "<C-o>")
-map("n", "gB",  "<C-i>")
-map("n", "<leader><leader>", "<Plug>(easymotion-s)")
+map("n", "g-",  "<C-o>")
+map("n", "g+",  "<C-i>")
+map("n", "<leader>g", "<Plug>(easymotion-s)")
 
 
 -- Refactor
@@ -95,4 +86,20 @@ map("x", "<leader>ri", "<CMD>lua require('refactoring').refactor('Inline Variabl
 map("x", "<leader>rf", "<CMD>lua require('refactoring').refactor('Extract Block To File')<CR>")
 map("x", "<leader>rr", "<CMD>lua require('refactoring').select_refactor()<CR>")
 
+-- Lsp
+map("n", "gd", '<CMD>Glance type_definitions<CR>')
+map("n", "gD", '<CMD>Glance definitions<CR>')
+map("n", "gr", '<CMD>Glance references<CR>')
+map("n", "gi", '<CMD>Glance implementations<CR>')
+map("n", "<leader>rn", "<CMD>lua vim.lsp.buf.rename()<CR>")
+map("n", "<leader>fm", "<CMD>lua vim.lsp.buf.format()<CR>")
+map("n", "<leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>")
+map("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>")
 
+-- Trouble
+map("n", "<leader>xx", "<CMD>Trouble<CR>")
+map("n", "<leader>xw", "<CMD>Trouble workspace_diagnostics<CR>")
+map("n", "<leader>xd", "<CMD>Trouble document_diagnostics<CR>")
+map("n", "<leader>xl", "<CMD>Trouble loclist<CR>")
+map("n", "<leader>xq", "<CMD>Trouble quickfix<CR>")
+map("n", "gR", "<CMD>Trouble lsp_references<CR>")
