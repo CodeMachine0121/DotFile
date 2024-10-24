@@ -22,7 +22,7 @@ glance.setup({
     wrap = true,
   },
   border = {
-    enable = false, -- Show window borders. Only horizontal borders allowed
+    enable = true, -- Show window borders. Only horizontal borders allowed
     top_char = '―',
     bottom_char = '―',
   },
