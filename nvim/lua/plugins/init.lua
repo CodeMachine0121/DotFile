@@ -28,6 +28,23 @@ return {
   -- lsp
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      "benfowler/telescope-luasnip.nvim",
+      -- 添加 jsregexp 依賴
+      {
+        "nvim-lua/plenary.nvim",
+      },
+      {
+        "kikito/inspect.lua",
+      },
+      {
+        "hrsh7th/nvim-cmp",
+      },
+      {
+        "onsails/lspkind.nvim",
+      },
+    },
     config = function()
       require "configs.lspconfig"
     end,
@@ -232,6 +249,16 @@ return {
     "ivanjermakov/troublesum.nvim",
     config = function()
       require("configs.troublesum")
+    end,
+    lazy = false
+  },
+
+  -- snippets
+  {
+    "L3MON4D3/LuaSnip",
+    build = "make install_jsregexp",
+    config = function ()
+     require("configs.luasnippest")
     end,
     lazy = false
   }
