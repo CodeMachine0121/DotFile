@@ -19,7 +19,6 @@ refactoring.setup({
     prompt_func_param_type = {
         go = false,
         java = false,
-
         cpp = false,
         c = false,
         h = false,

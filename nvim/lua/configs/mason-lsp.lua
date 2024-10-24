@@ -1,3 +1,4 @@
+
 local status, masonlsp = pcall(require, "mason-lspconfig")
 
 if not status then

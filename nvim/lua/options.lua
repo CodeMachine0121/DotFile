@@ -1,3 +1,6 @@
+require "nvchad.options"
+
+-- add yours here!
 local global = vim.g
 local o = vim.o
 
@@ -25,4 +28,4 @@ o.wildmenu = true
 o.showcmd = true
 o.showmatch = true
 o.inccommand = "split"
-o.termguicolors = true
+o.cursorlineopt ='both' -- to enable cursorline!

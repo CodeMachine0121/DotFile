@@ -1,3 +1,6 @@
+require "nvchad.mappings"
+
+-- add yours here
 local function map(mode, lhs, rhs)
 	vim.keymap.set(mode, lhs, rhs, { silent = true })
 end
@@ -21,7 +24,7 @@ end
 map("n", "<leader>w", "<CMD>update<CR>")
 
 -- Quit
-map("n", "<leader>q", "<CMD>q<CR>")
+map("n", "<leader>q!", "<CMD>q<CR>")
 
 -- Exit insert mode
 map("i", "jk", "<ESC>")
@@ -35,8 +38,8 @@ map("n", "<leader>e", "<CMD>Neotree toggle<CR>")
 map("n", "<leader>o", "<CMD>Neotree focus<CR>")
 
 -- Buffer
-map("n", "<leader>gt", "<CMD>bnext<CR>")
-map("n", "<leader>gT", "<CMD>bprevious<CR>")
+map("n", "gt", "<CMD>bnext<CR>")
+map("n", "gT", "<CMD>bprevious<CR>")
 
 -- Terminal
 map("n", "<leader>th", "<CMD>ToggleTerm size=10 direction=horizontal<CR>")
@@ -73,8 +76,8 @@ map("v", "<C-w>", "<Plug>(expand_region_expand)")
 
 
 -- move
-map("n", "g-",  "<C-o>")
-map("n", "g+",  "<C-i>")
+map("n", "gb",  "<C-o>")
+map("n", "gB",  "<C-i>")
 map("n", "<leader>g", "<Plug>(easymotion-s)")
 
 
@@ -91,10 +94,17 @@ map("n", "gd", '<CMD>Glance type_definitions<CR>')
 map("n", "gD", '<CMD>Glance definitions<CR>')
 map("n", "gr", '<CMD>Glance references<CR>')
 map("n", "gi", '<CMD>Glance implementations<CR>')
+-- map("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>")
+-- map("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>")
+-- map("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>")
+-- map("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>")
 map("n", "<leader>rn", "<CMD>lua vim.lsp.buf.rename()<CR>")
 map("n", "<leader>fm", "<CMD>lua vim.lsp.buf.format()<CR>")
 map("n", "<leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>")
 map("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>")
+
+map("n", "<leader>a", '<cmd>lua require("fastaction").code_action()<CR>')
+map("v", "<leader>a", "<esc><cmd>lua require('fastaction').range_code_action()<CR>")
 
 -- Trouble
 map("n", "<leader>xx", "<CMD>Trouble<CR>")
