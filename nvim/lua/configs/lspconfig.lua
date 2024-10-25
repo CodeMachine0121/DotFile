@@ -7,11 +7,34 @@ local lspconfig = require "lspconfig"
 local servers = { "html", "cssls" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
--- config attach
+local setActionUi = function(actions)
+  if #actions > 0 then
+    local action_tuple = {}
+
+    for i, action in ipairs(actions) do
+      action_tuple[i] = { action.title, action }
+    end
+
+    vim.ui.select(action_tuple, {
+      prompt = 'Code actions:',
+      format_item = function(item)
+        return item[1]
+      end,
+    }, function(choice)
+        if choice then
+          local selected_action = choice[2]
+          if selected_action.edit then
+            vim.lsp.util.apply_workspace_edit(selected_action.edit, "utf-8")
+          end
+        end
+    end)
+  end
+end
+
+
 local on_attach = function(client, bufnr)
   if client.name == "ts_ls" then
     local orig_code_action = vim.lsp.buf.code_action
-    
     vim.lsp.buf.code_action = function(options)
       local params = vim.lsp.util.make_range_params()
       params.context = {
@@ -20,37 +43,25 @@ local on_attach = function(client, bufnr)
         })
       }
       
-      -- 先獲取原始的 actions
-      client.request('textDocument/codeAction', params, function(err, actions)
+      client.request('textDocument/codeAction', params, function(err, result)
         if err then return end
         
-        actions = actions or {}
+        -- 確保 result 是一個數組
+        local actions = result or {}
+        
+        -- 保存原始的 actions
+        local original_actions = vim.deepcopy(actions)
         
         -- 檢查診斷信息
         local diagnostics = params.context.diagnostics
-        actions = require('configs.codeActions.ts_create_class')(diagnostics, actions)
+        
+        -- 添加自定義的 actions，但保持原始的 actions 不變
+        actions = require('configs.codeActions.ts_create_class')(diagnostics, original_actions)
         actions = require('configs.codeActions.ts_create_interface')(diagnostics, actions)
+        actions = require('configs.codeActions.ts_extract_variable')(actions, bufnr)
+
         -- 使用 nvchad 的方式顯示 actions
-        if #actions > 0 then
-          local action_tuple = {}
-          for i, action in ipairs(actions) do
-            action_tuple[i] = { action.title, action }
-          end
-          
-          vim.ui.select(action_tuple, {
-            prompt = 'Code actions:',
-            format_item = function(item)
-              return item[1]
-            end,
-          }, function(choice)
-            if choice then
-              local selected_action = choice[2]
-              if selected_action.edit then
-                vim.lsp.util.apply_workspace_edit(selected_action.edit, "utf-8")
-              end
-            end
-          end)
-        end
+        setActionUi(actions)
       end)
     end
   end
