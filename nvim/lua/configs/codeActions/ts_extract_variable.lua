@@ -34,7 +34,7 @@ local function ts_extract_variable(actions, bufnr)
       }
     }
   }
-  
+
   table.insert(actions, extract_action)
   return actions
 end
