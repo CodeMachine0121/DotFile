@@ -26,8 +26,8 @@ return function(diagnostics, actions)
                   [vim.uri_from_bufnr(0)] = {
                     {
                       range = {
-                        start = { line = current_line - 1, character = 0 },
-                        ["end"] = { line = current_line - 1, character = 0 }
+                        start = { line = vim.fn.line('$'), character = 0 },
+                        ["end"] = { line = vim.fn.line('$'), character = 0 }
                       },
                       newText = string.format([[export class %s {
   constructor() {

@@ -71,6 +71,7 @@ return {
     config = function()
       require("configs.glance")
     end,
+    lazy = false
   },
 
 	-- Telescope
