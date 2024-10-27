@@ -32,10 +32,8 @@ ls.add_snippets("all", {
 local typescript_snippets = require("configs.snippets.typescript")
 local lua_snippets = require("configs.snippets.lua")
 local variable_snippets = require("configs.snippets.varaible")
-local if_else_snippets = require("configs.snippets.if-else")
 
 ls.add_snippets("typescript", typescript_snippets)
 ls.add_snippets("typescript", variable_snippets)
-ls.add_snippets("typescript", if_else_snippets)
 ls.add_snippets("lua", lua_snippets)
 return ls
