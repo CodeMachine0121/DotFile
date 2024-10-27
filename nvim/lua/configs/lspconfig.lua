@@ -78,7 +78,6 @@ local on_attach = function(client, bufnr)
         actions = require('configs.codeActions.ts_create_class')(diagnostics, actions)
         actions = require('configs.codeActions.ts_create_interface')(diagnostics, actions)
         actions = require('configs.codeActions.ts_extract_variable')(actions, bufnr)
-        actions = require('configs.codeActions.ts_extract_feild')(actions, bufnr)
         -- 使用 nvchad 的方式顯示 actions
         setActionUi(actions)
       end)
