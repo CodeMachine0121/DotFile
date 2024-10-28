@@ -195,6 +195,30 @@ return {
 		end,
     lazy = false
 	},
+  {
+    'f-person/git-blame.nvim',
+    lazy = false,
+    config = function ()
+      require('gitblame').setup({
+        enabled = true,
+      })
+    end
+  },
+  {
+    'kdheepak/lazygit.nvim',
+    lazy = false,
+    cmd = {
+        "LazyGit",
+        "LazyGitConfig",
+        "LazyGitCurrentFile",
+        "LazyGitFilter",
+        "LazyGitFilterCurrentFile",
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+    },
+  },
 
 	-- Markdown Preview
 	{

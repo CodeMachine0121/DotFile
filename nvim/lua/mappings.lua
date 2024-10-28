@@ -113,3 +113,6 @@ map("n", "<leader>xd", "<CMD>Trouble document_diagnostics<CR>")
 map("n", "<leader>xl", "<CMD>Trouble loclist<CR>")
 map("n", "<leader>xq", "<CMD>Trouble quickfix<CR>")
 map("n", "gR", "<CMD>Trouble lsp_references<CR>")
+
+-- git
+map("n", "<leader>gt", "<CMD>LazyGit<CR>")
