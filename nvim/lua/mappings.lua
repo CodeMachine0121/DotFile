@@ -67,6 +67,8 @@ map("n", "z,", "A,")
 map("n", "z.", "A.")
 map("n", "<Tab>", ">>_")
 map("v", "<Tab>", ">gv")
+map("n", "<S-Tab>", "<<_")
+map("v", "<S-Tab>", "<gv")
 map("n", "hh", "^")
 map("n", "ll", "$")
 map("n", "<leader>so", "<CMD>source<CR>")
@@ -116,3 +118,6 @@ map("n", "gR", "<CMD>Trouble lsp_references<CR>")
 
 -- git
 map("n", "<leader>gt", "<CMD>LazyGit<CR>")
+
+-- dap
+map("n", "<leader>du", "<CMD>lua require('dapui').toggle()<CR>")

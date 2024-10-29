@@ -20,6 +20,10 @@ return {
     end,
     lazy = false
   },
+  {
+    "mortepau/codicons.nvim",
+    lazy = false
+  },
 
 	{
 		"nvim-tree/nvim-web-devicons",
@@ -294,5 +298,20 @@ return {
      require("configs.luasnippest")
     end,
     lazy = false
-  }
+  },
+
+  -- dap
+  require("plugins.JavscriptDapper"),
+
+  {
+    "rcarriga/nvim-dap-ui",
+    requires = {
+      "mfussenegger/nvim-dap",  -- 確保 nvim-dap 已經安裝
+    },
+    config = function()
+      require('configs.dap-ui')
+    end,
+    lazy = false,
+  },
+
 }
