@@ -24,6 +24,8 @@ dapui.setup({
     remove = "d",
     clear = "c",
   },
+  -- 在變數視窗中設置 modifiable
+  windows = { variables = { modifiable = true } },
   layouts = {
     {
       elements = {

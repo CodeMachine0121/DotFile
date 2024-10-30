@@ -46,7 +46,49 @@ for _, language in ipairs(js_based_languages) do
       cwd = vim.fn.getcwd(),
       sourceMaps = true,
     },
-    -- Debug 網頁應用（客戶端）
+    {
+      name = "Launch TypeScript file",
+      type = "pwa-node",
+      request = "launch",
+      program = "${file}",
+      cwd = vim.fn.getcwd(),
+      runtimeExecutable = "ts-node",
+      sourceMaps = true,
+      protocol = "inspector",
+      console = "integratedTerminal",
+      skipFiles = { "<node_internals>/**" },
+    },
+
+    -- vue debug
+    {
+      type = "pwa-node",
+      request = "launch",
+      name = "Launch Vue Dev Server",
+      program = "${workspaceFolder}/node_modules/vite/bin/vite.js", -- Vue CLI 服務器位置
+      args = { "serve" }, -- 等同於 `npm run dev`
+      cwd = "${workspaceFolder}",
+      runtimeExecutable = "node", -- 使用 Node.js 來啟動
+      console = "integratedTerminal", -- 終端輸出設置
+      sourceMaps = true,
+      protocol = "inspector",
+      port = function ()
+        local co = coroutine.running()
+        return coroutine.create(function()
+          vim.ui.input({
+            prompt = "Enter Port: ",
+            default = "3000",
+          }, function(port)
+            if port == nil or port == "" then
+              return
+            else
+              coroutine.resume(co, port)
+            end
+          end)
+        end)
+      end , -- 調試端口
+    },
+
+    -- Debug web applications (client side)
     {
       type = "pwa-chrome",
       request = "launch",
@@ -71,17 +113,12 @@ for _, language in ipairs(js_based_languages) do
       sourceMaps = true,
       userDataDir = false,
     },
+    -- Divider for the launch.json derived configs
     {
-      name = "Launch TypeScript file",
-      type = "pwa-node",
+      name = "----- ↓ launch.json configs ↓ -----",
+      type = "",
       request = "launch",
-      program = "${file}",
-      cwd = vim.fn.getcwd(),
-      runtimeExecutable = "ts-node",
-      sourceMaps = true,
-      protocol = "inspector",
-      console = "integratedTerminal",
-      skipFiles = { "<node_internals>/**" },
     },
-  }
+
+}
 end
