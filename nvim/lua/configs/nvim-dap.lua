@@ -64,10 +64,9 @@ for _, language in ipairs(js_based_languages) do
       type = "pwa-node",
       request = "launch",
       name = "Launch Vue Dev Server",
-      program = "${workspaceFolder}/node_modules/vite/bin/vite.js", -- Vue CLI 服務器位置
-      args = { "serve" }, -- 等同於 `npm run dev`
+      runtimeExecutable = "npm",
+      args = { "run", "dev" }, -- 等同於 `npm run dev`
       cwd = "${workspaceFolder}",
-      runtimeExecutable = "node", -- 使用 Node.js 來啟動
       console = "integratedTerminal", -- 終端輸出設置
       sourceMaps = true,
       protocol = "inspector",
