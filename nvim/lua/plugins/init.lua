@@ -314,4 +314,16 @@ return {
     lazy = false,
   },
 
+  -- copilot
+  {
+    "zbirenbaum/copilot.lua",
+    lazy = false,
+    event = "InsertEnter",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    config = function()
+      require("configs.copilot")
+    end,
+  },
+
 }
