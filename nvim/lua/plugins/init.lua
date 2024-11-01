@@ -325,5 +325,13 @@ return {
       require("configs.copilot")
     end,
   },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    lazy = false,
+    config = function ()
+      require("configs.copilot-chat")
+      
+    end
+  }
 
 }
