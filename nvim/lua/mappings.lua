@@ -1,5 +1,4 @@
 require "nvchad.mappings"
-
 -- add yours here
 local function map(mode, lhs, rhs)
 	vim.keymap.set(mode, lhs, rhs, { silent = true })
@@ -62,18 +61,18 @@ map("n", "<C-Up>", "<C-w>+")
 map("n", "<C-Down>", "<C-w>-")
 
 -- editor
-map("n", "z;", "A;")
-map("n", "z,", "A,")
-map("n", "z.", "A.")
-map("n", "<Tab>", ">>_")
-map("v", "<Tab>", ">gv")
-map("n", "<S-Tab>", "<<_")
-map("v", "<S-Tab>", "<gv")
+map("n", "z;", "a;")
+map("n", "z,", "a,")
+map("n", "z.", "a.")
+map("n", "<tab>", ">>_")
+map("v", "<tab>", ">gv")
+map("n", "<s-tab>", "<<_")
+map("v", "<s-tab>", "<gv")
 map("n", "hh", "^")
 map("n", "ll", "$")
-map("n", "<leader>so", "<CMD>source<CR>")
-map("n", "<C-w>", "<Plug>(expand_region_expand)")
-map("v", "<C-w>", "<Plug>(expand_region_expand)")
+map("n", "<leader>so", "<cmd>source<cr>")
+map("n", "<c-w>", "<plug>(expand_region_expand)")
+map("v", "<c-w>", "<plug>(expand_region_expand)")
 
 
 
