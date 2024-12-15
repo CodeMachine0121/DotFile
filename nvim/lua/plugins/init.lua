@@ -7,7 +7,11 @@ return {
   -- Ui 
   {
     "startup-nvim/startup.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope-file-browser.nvim" },
+    dependencies = {
+			"nvim-telescope/telescope.nvim",
+			"nvim-lua/plenary.nvim", 
+			"nvim-telescope/telescope-file-browser.nvim" 
+		},
     config = function()
       require("configs.startup")
     end,
@@ -35,6 +39,15 @@ return {
       require('ibl').setup({})
     end,
     lazy = false
+  },
+  {
+    'rcarriga/nvim-notify',
+    config = function ()
+      require "configs.notify"
+    end,
+    lazy = false
+
+
   },
 
   -- lsp
@@ -245,7 +258,7 @@ return {
 	-- auto save
 	{
     "https://github.com/pocco81/auto-save.nvim",
-    lazy = false
+    lazy = true
   },
 
   -- Refactoring
@@ -314,24 +327,19 @@ return {
     lazy = false,
   },
 
-  -- copilot
+  -- devcontainer
   {
-    "zbirenbaum/copilot.lua",
-    lazy = false,
-    event = "InsertEnter",
-    cmd = "Copilot",
-    build = ":Copilot auth",
-    config = function()
-      require("configs.copilot")
-    end,
-  },
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    lazy = false,
-    config = function ()
-      require("configs.copilot-chat")
-      
-    end
+      'https://codeberg.org/esensar/nvim-dev-container',
+      requires = {
+        'nvim-treesitter/nvim-treesitter'
+      },
+      lazy = false,
+      config = function()
+        require("configs.devcontainer")
+      end,
   }
 
 }
+
+
+

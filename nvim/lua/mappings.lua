@@ -34,12 +34,12 @@ map("n", "<leader>vs", "<CMD>vsplit<CR>")
 map("n", "<leader>vp", "<CMD>split<CR>")
 
 -- NeoTree
-map("n", "<leader>e", "<CMD>Neotree toggle<CR>")
-map("n", "<leader>o", "<CMD>Neotree focus<CR>")
+map("n", "<leader>e", "<CMD>NvimTreeFocus<CR>")
 
 -- Buffer
 map("n", "gt", "<CMD>bnext<CR>")
 map("n", "gT", "<CMD>bprevious<CR>")
+map("n", "gw", "<CMD>bdelete<CR>")
 
 -- Terminal
 map("n", "<leader>th", "<CMD>ToggleTerm size=10 direction=horizontal<CR>")
