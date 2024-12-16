@@ -4,50 +4,68 @@ return {
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
-  -- Ui 
+  -- Ui
   {
     "startup-nvim/startup.nvim",
     dependencies = {
-			"nvim-telescope/telescope.nvim",
-			"nvim-lua/plenary.nvim", 
-			"nvim-telescope/telescope-file-browser.nvim" 
-		},
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-file-browser.nvim"
+    },
     config = function()
       require("configs.startup")
     end,
     lazy = false
   },
   {
-    "rebelot/kanagawa.nvim",
-    config = function ()
-     require "configs.kanagawa"
+    "tribela/transparent.nvim",
+    lazy = true,
+    config = function()
+      require("transparent").setup({
+      })
+    end
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    lazy = false,
+    config = function()
+      require("configs.lualine")
     end,
-    lazy = false
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+      opt = true
+    }
   },
   {
     "mortepau/codicons.nvim",
     lazy = false
   },
 
-	{
-		"nvim-tree/nvim-web-devicons",
+  {
+    "nvim-tree/nvim-web-devicons",
     lazy = false
-	},
+  },
   {
     "lukas-reineke/indent-blankline.nvim",
-    config = function ()
+    config = function()
       require('ibl').setup({})
     end,
     lazy = false
   },
   {
     'rcarriga/nvim-notify',
-    config = function ()
+    config = function()
       require "configs.notify"
     end,
     lazy = false
-
-
+  },
+  {
+    "Tsuzat/NeoSolarized.nvim",
+    priority = 1000,
+    lazy = false,
+    config = function()
+      require("configs.NeoSolarized")
+    end
   },
 
   -- lsp
@@ -76,13 +94,13 @@ return {
     lazy = false
   },
   {
-		"nvimtools/none-ls.nvim",
-		config = function()
-			require("configs.null-ls")
-		end,
-		requires = { "nvim-lua/plenary.nvim", "nvimtools/none-ls-extras.nvim" },
+    "nvimtools/none-ls.nvim",
+    config = function()
+      require("configs.null-ls")
+    end,
+    requires = { "nvim-lua/plenary.nvim", "nvimtools/none-ls-extras.nvim" },
     lazy = false,
-	},
+  },
   {
     "nvimtools/none-ls-extras.nvim",
     lazy = false,
@@ -99,15 +117,15 @@ return {
     lazy = false
   },
 
-	-- Telescope
-	{
-		"nvim-telescope/telescope.nvim",
+  -- Telescope
+  {
+    "nvim-telescope/telescope.nvim",
     lazy = false,
-		requires = { { "nvim/lua/plenary.nvim" } },
+    requires = { { "nvim/lua/plenary.nvim" } },
     config = function()
       require("configs.telescope")
     end,
-	},
+  },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     run = "make",
@@ -119,103 +137,103 @@ return {
   },
 
   -- cmp
-	{
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
-		config = function()
-			require("configs.cmp")
-		end,
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    config = function()
+      require("configs.cmp")
+    end,
     lazy = false,
-	},
+  },
   {
     "hrsh7th/cmp-nvim-lsp",
     lazy = false,
   },
-	{
+  {
     "hrsh7th/cmp-path",
     after = "nvim-cmp",
     lazy = false
   },
-	{
+  {
     "hrsh7th/cmp-buffer",
     after = "nvim-cmp",
     lazy = false
   },
 
-	-- Mason: Portable package manager
-	{
-		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup()
-		end,
+  -- Mason: Portable package manager
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup()
+    end,
     lazy = false
-	},
+  },
 
-	{
-		"williamboman/mason-lspconfig.nvim",
-		config = function()
-		require("configs.mason-lsp")
-		end,
-		after = "mason.nvim",
+  {
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require("configs.mason-lsp")
+    end,
+    after = "mason.nvim",
     lazy = false
-	},
+  },
 
   -- folder explorer
   {
-		"nvim-neo-tree/neo-tree.nvim",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-		},
+    "nvim-neo-tree/neo-tree.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    },
     lazy = false
-	},
+  },
   {
     "MunifTanjim/nui.nvim"
   },
   -- sync hightlight
   {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc",
-       "html", "css"
-  		},
-  	},
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim", "lua", "vimdoc",
+        "html", "css"
+      },
+    },
     lazy = false
   },
 
   -- show color on nvim
-	{
-		"norcalli/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup({ "*" })
-		end,
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup({ "*" })
+    end,
     lazy = false
-	},
+  },
 
-	-- Terminal
-	{
-		"akinsho/toggleterm.nvim",
-		config = function()
-			require("configs.toggleterm")
-			vim.opt.termguicolors = true
-		end,
+  -- Terminal
+  {
+    "akinsho/toggleterm.nvim",
+    config = function()
+      require("configs.toggleterm")
+      vim.opt.termguicolors = true
+    end,
     lazy = false
-	},
+  },
 
-	-- Git
-	{
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("configs.gitsigns")
-		end,
+  -- Git
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("configs.gitsigns")
+    end,
     lazy = false
-	},
+  },
   {
     'f-person/git-blame.nvim',
     lazy = false,
-    config = function ()
+    config = function()
       require('gitblame').setup({
         enabled = true,
       })
@@ -225,38 +243,38 @@ return {
     'kdheepak/lazygit.nvim',
     lazy = false,
     cmd = {
-        "LazyGit",
-        "LazyGitConfig",
-        "LazyGitCurrentFile",
-        "LazyGitFilter",
-        "LazyGitFilterCurrentFile",
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
     },
     -- optional for floating window border decoration
     dependencies = {
-        "nvim-lua/plenary.nvim",
+      "nvim-lua/plenary.nvim",
     },
   },
 
-	-- Markdown Preview
-	{
-		"iamcco/markdown-preview.nvim",
-		run = function()
-			vim.fn["mkdp#util#install"]()
-		end,
+  -- Markdown Preview
+  {
+    "iamcco/markdown-preview.nvim",
+    run = function()
+      vim.fn["mkdp#util#install"]()
+    end,
     lazy = false
-	},
+  },
 
-	-- autopairs
-	{
-		"windwp/nvim-autopairs",
-		config = function()
-			require("configs.autopairs")
-		end,
+  -- autopairs
+  {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("configs.autopairs")
+    end,
     lazy = false
-	},
+  },
 
-	-- auto save
-	{
+  -- auto save
+  {
     "https://github.com/pocco81/auto-save.nvim",
     lazy = true
   },
@@ -265,8 +283,8 @@ return {
   {
     "ThePrimeagen/refactoring.nvim",
     requires = {
-        {"nvim-lua/plenary.nvim"},
-        {"nvim-treesitter/nvim-treesitter"}
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-treesitter/nvim-treesitter" }
     },
     config = function()
       require("configs.refactoring")
@@ -286,7 +304,7 @@ return {
     lazy = false
   },
 
-  -- Trouble 
+  -- Trouble
   {
     "folke/trouble.nvim",
     requires = "nvim-web-devicons",
@@ -307,19 +325,19 @@ return {
   {
     "L3MON4D3/LuaSnip",
     build = "make install_jsregexp",
-    config = function ()
-     require("configs.luasnippest")
+    config = function()
+      require("configs.luasnippest")
     end,
     lazy = false
   },
 
   -- dap
-  require("plugins.JavscriptDapper"),
+  require("plugins.js-debugger"),
 
   {
     "rcarriga/nvim-dap-ui",
     requires = {
-      "mfussenegger/nvim-dap",  -- 確保 nvim-dap 已經安裝
+      "mfussenegger/nvim-dap", -- 確保 nvim-dap 已經安裝
     },
     config = function()
       require('configs.dap-ui')
@@ -329,17 +347,27 @@ return {
 
   -- devcontainer
   {
-      'https://codeberg.org/esensar/nvim-dev-container',
-      requires = {
-        'nvim-treesitter/nvim-treesitter'
-      },
-      lazy = false,
-      config = function()
-        require("configs.devcontainer")
-      end,
+    'https://codeberg.org/esensar/nvim-dev-container',
+    requires = {
+      'nvim-treesitter/nvim-treesitter'
+    },
+    lazy = false,
+    config = function()
+      require("configs.devcontainer")
+    end,
+  },
+  {
+    "echasnovski/mini.animate",
+    lazy = false,
+    config = function()
+      require("configs.animate")
+    end
+  },
+  {
+    "echasnovski/mini.indentscope",
+    lazy = false,
+    config = function()
+      require("configs.indentscope")
+    end
   }
-
 }
-
-
-

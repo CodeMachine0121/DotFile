@@ -65,3 +65,5 @@ map("n", "<leader>gt", "<CMD>call VSCodeNotify('workbench.scm.focus')<CR>")
 
 map('n', '<leader>ff',
     "<cmd>call VSCodeNotify('workbench.files.action.showActiveFileInExplorer')<CR>")
+map("n", "<leader>fw",
+    "<CMD>call VSCodeNotify('workbench.action.findInFiles')<CR>")
