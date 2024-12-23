@@ -5,6 +5,9 @@ if has('ide')
     source ~/rider.vimrc
   endif
 endif
+"[Copilot]
+nmap <c-g> :action copilot.chat.show<CR>
+
 
 "[Basic]
 nmap <A-u> :redo<CR>
@@ -13,7 +16,7 @@ nmap zso : source ~/.ideavimrc<CR>
 imap jk <Esc>
 nmap <SPACE>fw :action FindInPath<CR>
 nmap <SPACE>ff :action SearchEverywhere<CR>
-nmap <SPACE>ca :action ProblemsView.QuickFixes<CR> 
+nmap <SPACE>fm :action SilentCodeCleanup<CR>
 
 " terminal
 nmap <SPACE>th :action Terminal.NewTab<CR>
