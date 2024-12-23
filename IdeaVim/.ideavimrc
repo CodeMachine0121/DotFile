@@ -11,27 +11,27 @@ nmap <A-u> :redo<CR>
 nmap ,c :action NewElementSamePlace<CR>
 nmap zso : source ~/.ideavimrc<CR>
 imap jk <Esc>
-nmap fw :action FindInPath<CR>
-nmap ff :action SearchEverywhere<CR>
+nmap <SPACE>fw :action FindInPath<CR>
+nmap <SPACE>ff :action SearchEverywhere<CR>
+nmap <SPACE>ca :action ProblemsView.QuickFixes<CR> 
 
+" terminal
+nmap <SPACE>th :action Terminal.NewTab<CR>
 
 "[Move]
 map <C-right> w
 map <C-left> b
+nmap gb :<C-u>action Back<CR>
 nmap zzz zzhh<CR>
 
 "[Jump]
-nmap <SPACE> :action AceAction<CR>
+nmap <SPACE>g :action AceAction<CR>
 nmap zn :action GotoNextError<CR>
 nmap zN :action GotoPreviousError<CR>
 nmap hh ^
 nmap ll $
 nmap ,m :action FileStructurePopup<CR>
 nmap zf :action GotoDeclaration<CR>:action RdParameterDeclarationNavigationAction<CR>
-nmap z1 hhf(ww
-nmap zpp f f w
-nmap zip /NotImplementedException<CR>hh
-nmap zx /throw<CR>hh
 nmap gd :action GotoDeclaration<CR>
 nmap gi :action GotoImplementation<CR>
 
@@ -43,17 +43,12 @@ nmap <C-CR> mza<CR><Esc>`z
 "[Insert]
 nnoremap <Tab> >>_
 vnoremap <Tab> >gv
-nmap zsb A.Should().Be();<Esc>ba
 nmap z, A,<Esc>
 nmap z; A;<Esc>
 nmap z. A.<Esc>
 vmap S :action SurroundWith<CR>
 map zrt <Esc>hhireturn <Esc>z;
 nmap ,g :action Generate<CR>
-nmap zjp hhf{bvt y<Esc>O[JsonProperty("<Esc>pT"~$a")]<Esc>
-nmap zaw hhiawait
-nmap zva hhf=a await <Esc>
-nmap zcv ^vi":<C-u>action $Paste<CR>
 vmap " <Esc>bi"<Esc>wwi"
 vmap ' <Esc>bi'<Esc>wwi'
 vmap ( <Esc>bi(<Esc>wwi)
@@ -78,7 +73,7 @@ map zrp :action IntroduceParameter<CR>
 imap zrp <Esc>zrp<Esc>
 map zrf :action IntroduceField<CR>
 imap zrf <Esc>zrf
-nmap rr :action Refactorings.QuickListPopupAction<CR>
+nmap <SPACE>rr :action Refactorings.QuickListPopupAction<CR>
 
 "[Select]
 nmap z( vi(
@@ -102,4 +97,4 @@ set clipboard=unnamedplus
 set visualbell
 
 " [Git]
-nmap zgp :action Git.Menu<CR>
+nmap zgp :action Git.Menu<CR>set clipboard^=ideaputet clipboard^=ideaput
