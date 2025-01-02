@@ -123,7 +123,7 @@ map("n", "<leader>gt", "<CMD>LazyGit<CR>")
 map("n", "<leader>du", "<CMD>lua require('dapui').toggle()<CR>")
 
 -- copilotChat
-map("n", "<leader>ccq",
+map("n", "<leader>cc",
   function()
       local input = vim.fn.input("Quick Chat: ")
       if input ~= "" then
@@ -131,13 +131,14 @@ map("n", "<leader>ccq",
       end
   end
 )
-map("n", "<leader>cci",
+
+map("n", "<c-g>",
   function()
     require("CopilotChat").toggle({
       window = {
-        layout = 'float',
+        -- layout = 'float',
         relative = 'cursor',
-        width = 1,
+        width = 0.4,
         height = 0.4,
         row = 1
       }
@@ -145,9 +146,3 @@ map("n", "<leader>cci",
   end
 )
 
-map("n", "<leader>ccp",
-  function()
-    local actions = require("CopilotChat.actions")
-    require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
-  end
-)

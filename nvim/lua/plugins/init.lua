@@ -6,6 +6,21 @@ return {
   },
   -- Ui
   {
+    "anuvyklack/windows.nvim",
+    dependencies = {
+      "anuvyklack/middleclass",
+      "anuvyklack/animation.nvim"
+    },
+    config = function()
+      vim.o.winwidth = 10
+      vim.o.winminwidth = 10
+      vim.o.equalalways = false
+      require('windows').setup()
+      vim.api.nvim_command("WindowsEnableAutowidth")
+    end,
+    lazy = false
+  },
+  {
     "startup-nvim/startup.nvim",
     dependencies = {
       "nvim-telescope/telescope.nvim",
@@ -369,5 +384,18 @@ return {
     config = function()
       require("configs.indentscope")
     end
+  },
+
+  -- copilot
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = {
+      { "github/copilot.vim" },
+      { "nvim-lua/plenary.nvim", branch = "master" },
+    },
+    config = function()
+      require("configs.copilot")
+    end,
+    lazy = false,
   }
 }

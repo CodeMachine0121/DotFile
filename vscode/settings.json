@@ -1,0 +1,76 @@
+{
+  "window.menuBarVisibility": "compact",
+  "workbench.layoutControl.enabled": false,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.sideBar.location": "right",
+
+  // vim setting
+  "vim.vimrc.enable": true,
+  "vim.leader": "<space>",
+  "vim.ignorecase": true,
+  "vim.smartcase": true,
+  "vim.smartRelativeLine": true,
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["tab"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["shift+tab"],
+      "commands": ["editor.action.outdentLines"]
+    }
+  ],
+  "vim.useSystemClipboard": true,
+
+  // Edit
+  "editor.lineNumbers": "relative",
+  "editor.fontFamily": "FiraMono Nerd Font Mono",
+  "editor.fontSize": 22,
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+  "editor.wordWrap": "on",
+
+  // terminal setting
+  "terminal.integrated.fontSize": 18,
+  "terminal.integrated.fontFamily": "FiraMono Nerd Font Mono",
+
+  //git
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.openRepositoryInParentFolders": "always",
+
+  "workbench.colorTheme": "Ayu Dark Bordered",
+  "terminal.integrated.gpuAcceleration": "off",
+  "dev.containers.gpuAvailability": "none",
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "typescript.suggest.autoImports": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  // markdown
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+
+  // git copilot
+  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "text": "always use traditional Chinese to answer"
+    }
+  ],
+  "vue.server.hybridMode": false
+}
