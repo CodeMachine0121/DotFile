@@ -123,12 +123,5 @@ complete -o default -F __start_kubectl k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 DONT_PROMPT_WSL_INSTALL=No_Prompt_please
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-eval "$(zoxide init zsh)"
-source <(kubectl completion zsh)
 
-# fnm
-FNM_PATH="/home/james/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/james/.local/share/fnm:$PATH"
-  eval "`fnm env`"
-fi
+
