@@ -6,7 +6,7 @@ avante.setup(
     provider = "openai", -- The provider used in Aider mode or in the planning phase of Cursor Planning Mode
     openai = {
       endpoint = "https://api.x.ai/v1",
-      model = "grok-2-latest",   -- your desired model (or use gpt-4o, etc.)
+      model = "grok-3-latest",   -- your desired model (or use gpt-4o, etc.)
       timeout = 30000,           -- timeout in milliseconds
       temperature = 0,           -- adjust if needed
       max_tokens = 4096,
@@ -70,8 +70,8 @@ avante.setup(
         insert = "<C-s>",
       },
       sidebar = {
-        apply_all = "A",
-        apply_cursor = "a",
+        apply_all = "H",
+        apply_cursor = "h",
         retry_user_request = "r",
         edit_user_request = "e",
         switch_windows = "<Tab>",

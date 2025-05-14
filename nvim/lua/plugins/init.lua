@@ -3,8 +3,30 @@ return {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
+    lazy = false
   },
-  -- Ui
+  -- UI
+  {
+    "Mofiqul/vscode.nvim",
+    config = function()
+      require("vscode").setup({})
+    end,
+    lazy = false
+  },
+  {
+    "echasnovski/mini.animate",
+    lazy = false,
+    config = function()
+      require("configs.animate")
+    end
+  },
+  {
+    "echasnovski/mini.indentscope",
+    lazy = false,
+    config = function()
+      require("configs.indentscope")
+    end
+  },
   {
     "anuvyklack/windows.nvim",
     dependencies = {
@@ -21,42 +43,6 @@ return {
     lazy = false
   },
   {
-    "startup-nvim/startup.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope-file-browser.nvim"
-    },
-    config = function()
-      require("configs.startup")
-    end,
-    lazy = false
-  },
-  {
-    "tribela/transparent.nvim",
-    lazy = true,
-    config = function()
-      require("transparent").setup({
-      })
-    end
-  },
-  {
-    'nvim-lualine/lualine.nvim',
-    lazy = false,
-    config = function()
-      require("configs.lualine")
-    end,
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-      opt = true
-    }
-  },
-  {
-    "mortepau/codicons.nvim",
-    lazy = false
-  },
-
-  {
     "nvim-tree/nvim-web-devicons",
     lazy = false
   },
@@ -66,14 +52,6 @@ return {
       require('ibl').setup({})
     end,
     lazy = false
-  },
-  {
-    "Tsuzat/NeoSolarized.nvim",
-    priority = 1000,
-    lazy = false,
-    config = function()
-      require("configs.NeoSolarized")
-    end
   },
 
   -- lsp
@@ -125,25 +103,6 @@ return {
     lazy = false
   },
 
-  -- Telescope
-  {
-    "nvim-telescope/telescope.nvim",
-    lazy = false,
-    requires = { { "nvim/lua/plenary.nvim" } },
-    config = function()
-      require("configs.telescope")
-    end,
-  },
-  {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    run = "make",
-    lazy = false,
-  },
-  {
-    "nvim-telescope/telescope-ui-select.nvim",
-    lazy = false,
-  },
-
   -- cmp
   {
     "hrsh7th/nvim-cmp",
@@ -168,6 +127,8 @@ return {
     lazy = false
   },
 
+
+
   -- Mason: Portable package manager
   {
     "williamboman/mason.nvim",
@@ -187,6 +148,24 @@ return {
   },
 
   -- folder explorer
+  -- Telescope
+  {
+    "nvim-telescope/telescope.nvim",
+    lazy = false,
+    requires = { { "nvim/lua/plenary.nvim" } },
+    config = function()
+      require("configs.telescope")
+    end,
+  },
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    run = "make",
+    lazy = false,
+  },
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+    lazy = false,
+  },
   {
     "nvim-neo-tree/neo-tree.nvim",
     requires = {
@@ -199,6 +178,7 @@ return {
   {
     "MunifTanjim/nui.nvim"
   },
+
   -- sync hightlight
   {
     "nvim-treesitter/nvim-treesitter",
@@ -208,15 +188,6 @@ return {
         "html", "css"
       },
     },
-    lazy = false
-  },
-
-  -- show color on nvim
-  {
-    "norcalli/nvim-colorizer.lua",
-    config = function()
-      require("colorizer").setup({ "*" })
-    end,
     lazy = false
   },
 
@@ -263,30 +234,6 @@ return {
     },
   },
 
-  -- Markdown Preview
-  {
-    "iamcco/markdown-preview.nvim",
-    run = function()
-      vim.fn["mkdp#util#install"]()
-    end,
-    lazy = false
-  },
-
-  -- autopairs
-  {
-    "windwp/nvim-autopairs",
-    config = function()
-      require("configs.autopairs")
-    end,
-    lazy = false
-  },
-
-  -- auto save
-  {
-    "https://github.com/pocco81/auto-save.nvim",
-    lazy = true
-  },
-
   -- Refactoring
   {
     "ThePrimeagen/refactoring.nvim",
@@ -300,32 +247,25 @@ return {
     lazy = false
   },
 
-  -- expend selection
+
+  -- editor
   {
     'terryma/vim-expand-region',
     lazy = false
   },
-
-  -- easy motion
+  {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("configs.autopairs")
+    end,
+    lazy = false
+  },
+  {
+    "https://github.com/pocco81/auto-save.nvim",
+    lazy = true
+  },
   {
     'easymotion/vim-easymotion',
-    lazy = false
-  },
-
-  -- Trouble
-  {
-    "folke/trouble.nvim",
-    requires = "nvim-web-devicons",
-    config = function()
-      require("configs.trouble")
-    end,
-    lazy = false
-  },
-  {
-    "ivanjermakov/troublesum.nvim",
-    config = function()
-      require("configs.troublesum")
-    end,
     lazy = false
   },
 
@@ -339,20 +279,6 @@ return {
     lazy = false
   },
 
-  -- dap
-  require("plugins.js-debugger"),
-
-  {
-    "rcarriga/nvim-dap-ui",
-    requires = {
-      "mfussenegger/nvim-dap", -- 確保 nvim-dap 已經安裝
-    },
-    config = function()
-      require('configs.dap-ui')
-    end,
-    lazy = false,
-  },
-
   -- devcontainer
   {
     'https://codeberg.org/esensar/nvim-dev-container',
@@ -364,34 +290,8 @@ return {
       require("configs.devcontainer")
     end,
   },
-  {
-    "echasnovski/mini.animate",
-    lazy = false,
-    config = function()
-      require("configs.animate")
-    end
-  },
-  {
-    "echasnovski/mini.indentscope",
-    lazy = false,
-    config = function()
-      require("configs.indentscope")
-    end
-  },
 
-  -- copilot
-  -- {
-  --   "CopilotC-Nvim/CopilotChat.nvim",
-  --   dependencies = {
-  --     { "github/copilot.vim" },
-  --     { "nvim-lua/plenary.nvim", branch = "master" },
-  --   },
-  --   config = function()
-  --     require("configs.copilot")
-  --   end,
-  --   lazy = false,
-  -- },
-  --
+  -- AI
   {
     "yetone/avante.nvim",
     config = function()
@@ -413,13 +313,12 @@ return {
     },
   },
   {
-    -- Make sure to set this up properly if you have lazy=true
-    'MeanderingProgrammer/render-markdown.nvim',
-    opts = {
-      file_types = { "markdown", "Avante" },
+    "olimorris/codecompanion.nvim",
+    config = true,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
     },
-    ft = { "markdown", "Avante" },
-    lazy = false,
-  },
-
+    lazy = false
+  }
 }

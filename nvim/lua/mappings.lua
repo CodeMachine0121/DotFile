@@ -96,10 +96,6 @@ map("n", "gd", '<CMD>Glance type_definitions<CR>')
 map("n", "gD", '<CMD>Glance definitions<CR>')
 map("n", "gr", '<CMD>Glance references<CR>')
 map("n", "gi", '<CMD>Glance implementations<CR>')
--- map("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>")
--- map("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>")
--- map("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>")
--- map("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>")
 map("n", "<leader>rn", "<CMD>lua vim.lsp.buf.rename()<CR>")
 map("n", "<leader>fm", "<CMD>lua vim.lsp.buf.format()<CR>")
 map("n", "<leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>")
@@ -108,41 +104,11 @@ map("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>")
 map("n", "<leader>a", '<cmd>lua require("fastaction").code_action()<CR>')
 map("v", "<leader>a", "<esc><cmd>lua require('fastaction').range_code_action()<CR>")
 
--- Trouble
-map("n", "<leader>xx", "<CMD>Trouble<CR>")
-map("n", "<leader>xw", "<CMD>Trouble workspace_diagnostics<CR>")
-map("n", "<leader>xd", "<CMD>Trouble document_diagnostics<CR>")
-map("n", "<leader>xl", "<CMD>Trouble loclist<CR>")
-map("n", "<leader>xq", "<CMD>Trouble quickfix<CR>")
-map("n", "gR", "<CMD>Trouble lsp_references<CR>")
-
 -- git
 map("n", "<leader>gt", "<CMD>LazyGit<CR>")
 
--- dap
-map("n", "<leader>du", "<CMD>lua require('dapui').toggle()<CR>")
+-- windsurf
+map("n", "<D-g>", ':CodeCompanionChat<CR>')
+map("n", "<D-f>", ':CodeCompanionActions<CR>')
 
--- copilotChat
-map("n", "<leader>cc",
-  function()
-      local input = vim.fn.input("Quick Chat: ")
-      if input ~= "" then
-        require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
-      end
-  end
-)
-
-map("n", "<c-g>",
-  function()
-    require("CopilotChat").toggle({
-      window = {
-        -- layout = 'float',
-        relative = 'cursor',
-        width = 0.4,
-        height = 0.4,
-        row = 1
-      }
-    })
-  end
-)
 

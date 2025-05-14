@@ -5,8 +5,12 @@ if has('ide')
     source ~/rider.vimrc
   endif
 endif
+
 "[Copilot]
-nmap <c-g> :action copilot.chat.show<CR>
+"nmap <c-g> :action copilot.chat.show<CR>
+"imap <c-g> <esc>:action copilot.chat.inline<CR>
+"nmap <c-g> :action ActivateCascadeToolWindow<CR>
+nmap <c-g> :action AIAssistant.Chat.AIPopupChat<CR>
 
 
 "[Basic]
@@ -17,6 +21,8 @@ imap jk <Esc>
 nmap <SPACE>fw :action FindInPath<CR>
 nmap <SPACE>ff :action SearchEverywhere<CR>
 nmap <SPACE>fm :action SilentCodeCleanup<CR>
+nmap <SPACE>ca :action ShowIntentionActions<CR>
+nmap <SPACE>zz :action ToggleZenMode<CR><Esc>:action TogglePresentationMode<CR>
 
 " terminal
 nmap <SPACE>th :action Terminal.NewTab<CR>
@@ -24,7 +30,6 @@ nmap <SPACE>th :action Terminal.NewTab<CR>
 "[Move]
 map <C-right> w
 map <C-left> b
-nmap gb :<C-u>action Back<CR>
 nmap zzz zzhh<CR>
 
 "[Jump]
@@ -46,12 +51,17 @@ nmap <C-CR> mza<CR><Esc>`z
 "[Insert]
 nnoremap <Tab> >>_
 vnoremap <Tab> >gv
+nmap zsb A.Should().Be();<Esc>ba
 nmap z, A,<Esc>
 nmap z; A;<Esc>
 nmap z. A.<Esc>
 vmap S :action SurroundWith<CR>
 map zrt <Esc>hhireturn <Esc>z;
 nmap ,g :action Generate<CR>
+nmap zjp hhf{bvt y<Esc>O[JsonProperty("<Esc>pT"~$a")]<Esc>
+nmap zaw hhiawait
+nmap zva hhf=a await <Esc>
+nmap zcv ^vi":<C-u>action $Paste<CR>
 vmap " <Esc>bi"<Esc>wwi"
 vmap ' <Esc>bi'<Esc>wwi'
 vmap ( <Esc>bi(<Esc>wwi)
@@ -76,7 +86,7 @@ map zrp :action IntroduceParameter<CR>
 imap zrp <Esc>zrp<Esc>
 map zrf :action IntroduceField<CR>
 imap zrf <Esc>zrf
-nmap <SPACE>rr :action Refactorings.QuickListPopupAction<CR>
+nmap rr :action Refactorings.QuickListPopupAction<CR>
 
 "[Select]
 nmap z( vi(
@@ -100,4 +110,4 @@ set clipboard=unnamedplus
 set visualbell
 
 " [Git]
-nmap zgp :action Git.Menu<CR>set clipboard^=ideaputet clipboard^=ideaput
+nmap zgp :action Git.Menu<CR>
