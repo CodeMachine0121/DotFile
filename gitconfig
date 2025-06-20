@@ -49,20 +49,7 @@
     newHighlight = green bold 22
  
 [user]
-    email = james.hsueh@titansoft.com.sg
-    name = james.hsueh
-[credential "http://git.coreop.net"]
-	provider = generic
-[safe]
-	directory = D:/twsc/nami
-	directory = D:/twsc/rohan
-	directory = D:/twsc/rohan
-	directory = D:/twsc/HectorGraphQL
-	directory = D:/twsc/Hector
-	directory = C:/Users/james.hsueh77/Desktop/work-space/tdd-submit-form
-	directory = D:/twsc/hector
-	directory = D:/twdc/titansoft.aspnetcore.logging
-	directory = D:/twsc/pontus
-	directory = C:/Users/james.hsueh77/Desktop/work-space/LuckyCat
+    email = james.hsueh@miniasp.com
+    name = 薛華慶, james.hsueh
 [pull]
 	rebase = true
