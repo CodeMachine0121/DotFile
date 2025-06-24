@@ -13,6 +13,9 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH=$PATH:/home/james/.local/bin
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="$PATH:/home/james/.dotnet/tools"
+export DOTNET_ROOT="/nix/store/n1kk5rfhr3paxmz82kdnv3p91601iqz7-dotnet-sdk-8.0.411/share/dotnet"
+export UDWR_CONFIGURATION_ENCRYPTION_KEY="kDXLlhJhjOOCJRIl2gIClTKNBqp+wM9pZchdAkYsGtg="
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -115,6 +118,7 @@ source $ZSH/oh-my-zsh.sh
 alias dps='docker ps'
 alias dm='docker images'
 alias k='kubectl'
+alias kns='kubens'
 alias vim='nvim'
 
 # auto complete for kubectl
