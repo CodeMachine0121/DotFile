@@ -1,5 +1,30 @@
+// Place your key bindings in this file to override the defaults
 [
-  // Navigation
+    {
+        "key": "ctrl+shift+e",
+        "command": "workbench.explorer.fileView.focus",
+        "when": "!inQuickPick && !inputFocus"
+    },
+    {
+        "key": "ctrl+shift+f",
+        "command": "workbench.action.files.revealActiveFileInWindows",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+g",
+        "command": "workbench.action.git.commit",
+        "when": "gitOpenRepositoryCount == 1 && gitCommitProvider == 'default'"
+    },
+    {
+        "key": "ctrl+shift+h",
+        "command": "workbench.action.showCommands",
+        "when": "!inQuickPick && !inputFocus"
+    },
+    {
+        "key": "shift+escape",
+        "command": "multiCommand.closeAllPanels"
+    },
+    // Navigation
   {
     "command": "workbench.action.navigateLeft",
     "key": "ctrl-h"
@@ -186,15 +211,7 @@
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
   {
-    "key": "ctrl+g",
-    "command": "workbench.action.chat.openInSidebar"
-  },
-  {
     "key": "ctrl+shift+g",
     "command": "workbench.action.chat.inlineVoiceChat"
   },
-  {
-    "key": "ctrl+d",
-    "command": "workbench.action.chat.openInNewWindow"
-  }
 ]
