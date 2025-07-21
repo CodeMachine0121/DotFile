@@ -7,6 +7,20 @@ return {
   },
   -- UI
   {
+    "Tsuzat/NeoSolarized.nvim",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    config = function()
+      vim.cmd [[ colorscheme NeoSolarized ]]
+    end
+  },
+  {
+    "https://github.com/xiyaowong/transparent.nvim",
+    lazy = true,
+    config = function()
+      --vim.cmd[[TransparentEnable]]
+    end
+  },
+  {
     "Mofiqul/vscode.nvim",
     config = function()
       require("vscode").setup({})
@@ -293,32 +307,19 @@ return {
 
   -- AI
   {
-    "yetone/avante.nvim",
-    config = function()
-      require('configs.avante')
-    end,
-    lazy = false,
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "stevearc/dressing.nvim",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      --- The below dependencies are optional,
-      "echasnovski/mini.pick",         -- for file_selector provider mini.pick
-      "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-      "hrsh7th/nvim-cmp",              -- autocompletion for avante commands and mentions
-      "ibhagwan/fzf-lua",              -- for file_selector provider fzf
-      "nvim-tree/nvim-web-devicons",   -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua",        -- for providers='copilot'
-    },
-  },
-  {
     "olimorris/codecompanion.nvim",
     config = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
+    lazy = false
+  },
+  {
+    "https://github.com/JonRoosevelt/gemini-cli.nvim.git",
+    config = function()
+      require("gemini").setup()
+    end,
     lazy = false
   }
 }

@@ -34,7 +34,7 @@ map("n", "<leader>vs", "<CMD>vsplit<CR>")
 map("n", "<leader>vp", "<CMD>split<CR>")
 
 -- NeoTree
-map("n", "<leader>e", "<CMD>NvimTreeFocus<CR>")
+map("n", "<leader>e", "<CMD>NvimTreeToggle<CR>")
 
 -- Buffer
 map("n", "gt", "<CMD>bnext<CR>")
