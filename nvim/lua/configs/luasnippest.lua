@@ -29,11 +29,5 @@ ls.add_snippets("all", {
 })
 
 -- 在 custom/configs/luasnip.lua 中添加：
-local typescript_snippets = require("configs.snippets.typescript")
-local lua_snippets = require("configs.snippets.lua")
-local variable_snippets = require("configs.snippets.varaible")
 
-ls.add_snippets("typescript", typescript_snippets)
-ls.add_snippets("typescript", variable_snippets)
-ls.add_snippets("lua", lua_snippets)
 return ls

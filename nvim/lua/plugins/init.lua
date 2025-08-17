@@ -7,56 +7,6 @@ return {
   },
   -- UI
   {
-    "Tsuzat/NeoSolarized.nvim",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    config = function()
-      vim.cmd [[ colorscheme NeoSolarized ]]
-    end
-  },
-  {
-    "https://github.com/xiyaowong/transparent.nvim",
-    lazy = true,
-    config = function()
-      --vim.cmd[[TransparentEnable]]
-    end
-  },
-  {
-    "Mofiqul/vscode.nvim",
-    config = function()
-      require("vscode").setup({})
-    end,
-    lazy = false
-  },
-  {
-    "echasnovski/mini.animate",
-    lazy = false,
-    config = function()
-      require("configs.animate")
-    end
-  },
-  {
-    "echasnovski/mini.indentscope",
-    lazy = false,
-    config = function()
-      require("configs.indentscope")
-    end
-  },
-  {
-    "anuvyklack/windows.nvim",
-    dependencies = {
-      "anuvyklack/middleclass",
-      "anuvyklack/animation.nvim"
-    },
-    config = function()
-      vim.o.winwidth = 10
-      vim.o.winminwidth = 10
-      vim.o.equalalways = false
-      require('windows').setup()
-      vim.api.nvim_command("WindowsEnableAutowidth")
-    end,
-    lazy = false
-  },
-  {
     "nvim-tree/nvim-web-devicons",
     lazy = false
   },
@@ -94,30 +44,9 @@ return {
     lazy = false
   },
   {
-    "nvimtools/none-ls.nvim",
-    config = function()
-      require("configs.null-ls")
-    end,
-    requires = { "nvim-lua/plenary.nvim", "nvimtools/none-ls-extras.nvim" },
-    lazy = false,
-  },
-  {
-    "nvimtools/none-ls-extras.nvim",
-    lazy = false,
-  },
-  {
     "onsails/lspkind-nvim",
     lazy = false,
   },
-  {
-    "dnlhc/glance.nvim",
-    config = function()
-      require("configs.glance")
-    end,
-    lazy = false
-  },
-
-  -- cmp
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
@@ -189,9 +118,6 @@ return {
     },
     lazy = false
   },
-  {
-    "MunifTanjim/nui.nvim"
-  },
 
   -- sync hightlight
   {
@@ -242,23 +168,9 @@ return {
       "LazyGitFilter",
       "LazyGitFilterCurrentFile",
     },
-    -- optional for floating window border decoration
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-  },
-
-  -- Refactoring
-  {
-    "ThePrimeagen/refactoring.nvim",
-    requires = {
-      { "nvim-lua/plenary.nvim" },
-      { "nvim-treesitter/nvim-treesitter" }
-    },
-    config = function()
-      require("configs.refactoring")
-    end,
-    lazy = false
   },
 
 
@@ -289,36 +201,6 @@ return {
     build = "make install_jsregexp",
     config = function()
       require("configs.luasnippest")
-    end,
-    lazy = false
-  },
-
-  -- devcontainer
-  {
-    'https://codeberg.org/esensar/nvim-dev-container',
-    requires = {
-      'nvim-treesitter/nvim-treesitter'
-    },
-    lazy = false,
-    config = function()
-      require("configs.devcontainer")
-    end,
-  },
-
-  -- AI
-  {
-    "olimorris/codecompanion.nvim",
-    config = true,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    lazy = false
-  },
-  {
-    "https://github.com/JonRoosevelt/gemini-cli.nvim.git",
-    config = function()
-      require("gemini").setup()
     end,
     lazy = false
   }
